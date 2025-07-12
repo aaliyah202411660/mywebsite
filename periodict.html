@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Periodic Table of Elements</title>
+	<style>
+		body {
+			margin: 0;
+			padding: 0;
+			font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+			background: #ffffff;
+			color: #2c3e50;
+			text-align: center;
+			padding: 40px;
+		}
+
+		.background-img {
+			position: fixed;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+			z-index: -1;
+		}
+
+		.back-button {
+			position: fixed;
+			top: 20px;
+			left: 20px;
+			background-color: #2c3e50;
+			color: white;
+			border: none;
+			padding: 10px 15px;
+			border-radius: 5px;
+			font-size: 14px;
+			cursor: pointer;
+			text-decoration: none;
+			z-index: 10;
+		}
+
+		.back-button:hover {
+			background-color: #1a252f;
+		}
+
+		h1 {
+			text-align: center;
+			font-size: 2.5rem;
+			color: #2c3e50;
+			padding: 20px;
+			margin-top: 40px;
+			border: 3px solid #2c3e50;
+			border-radius: 10px;
+			background-color: #ffffffcc;
+			box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+			width: fit-content;
+			margin-left: auto;
+			margin-right: auto;
+		}
+
+		table {
+			border-collapse: separate;
+			border-spacing: 8px;
+			margin: 0 auto;
+			max-width: 95%;
+		}
+
+		td {
+			width: 75px;
+			height: 75px;
+			border-radius: 10px;
+			box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+			vertical-align: middle;
+			text-align: center;
+			font-weight: bold;
+			background-color: #fff;
+			color: #fff;
+			padding: 8px;
+			transition: transform 0.2s ease;
+			font-size: 18px;
+			text-shadow: 1px 1px 2px #00000088;
+		}
+
+		td:hover {
+			transform: scale(1.08);
+		}
+
+		td.empty {
+			background-color: transparent;
+			border: none;
+			box-shadow: none;
+		}
+
+		td span {
+			display: block;
+			font-size: 12px;
+			font-weight: normal;
+			color: #f0f0f0;
+		}
+
+		.alkali {
+			background: linear-gradient(135deg, #ff7e5f, #feb47b);
+		}
+		.alkaline-earth {
+			background: linear-gradient(135deg, #f9d423, #ff4e50);
+		}
+		.transition {
+			background: linear-gradient(135deg, #43cea2, #185a9d);
+		}
+		.post-transition {
+			background: linear-gradient(135deg, #f7971e, #ffd200);
+		}
+		.metalloid {
+			background: linear-gradient(135deg, #00c6ff, #0072ff);
+		}
+		.nonmetal {
+			background: linear-gradient(135deg, #fbc2eb, #a6c1ee);
+		}
+		.halogen {
+			background: linear-gradient(135deg, #ff6a00, #ee0979);
+		}
+		.noble-gas {
+			background: linear-gradient(135deg, #00f2fe, #4facfe);
+		}
+		.lanthanide {
+			background: linear-gradient(135deg, #d4fc79, #96e6a1);
+		}
+		.actinide {
+			background: linear-gradient(135deg, #c79081, #dfa579);
+		}
+
+		.legend-box {
+			min-width: 150px;
+			padding: 10px 15px;
+			border-radius: 10px;
+			color: #fff;
+			font-weight: bold;
+			box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+			text-align: center;
+			font-size: 14px;
+		}
+	</style>
+</head>
+<body>
+
+<a href="index.html" class="back-button">Back to Home</a>
+
+<img src="https://i0.wp.com/backgroundabstract.com/wp-content/uploads/edd/2022/09/White-01-e1664190808110.jpg?resize=1000%2C750&ssl=1" alt="Background" class="background-img">
+
+<h1>Periodic Table of Elements</h1>
+
+<table>
+<tr>
+<td class="nonmetal">1<br><strong>H</strong><span>Hydrogen</span></td>
+<td colspan="16" class="empty"></td>
+<td class="noble-gas">2<br><strong>He</strong><span>Helium</span></td>
+</tr>
+<tr>
+<td class="alkali">3<br><strong>Li</strong><span>Lithium</span></td>
+<td class="alkaline-earth">4<br><strong>Be</strong><span>Beryllium</span></td>
+<td colspan="10" class="empty"></td>
+<td class="metalloid">5<br><strong>B</strong><span>Boron</span></td>
+<td class="nonmetal">6<br><strong>C</strong><span>Carbon</span></td>
+<td class="nonmetal">7<br><strong>N</strong><span>Nitrogen</span></td>
+<td class="nonmetal">8<br><strong>O</strong><span>Oxygen</span></td>
+<td class="halogen">9<br><strong>F</strong><span>Fluorine</span></td>
+<td class="noble-gas">10<br><strong>Ne</strong><span>Neon</span></td>
+</tr>
+<tr>
+<td class="alkali">11<br><strong>Na</strong><span>Sodium</span></td>
+<td class="alkaline-earth">12<br><strong>Mg</strong><span>Magnesium</span></td>
+<td colspan="10" class="empty"></td>
+<td class="post-transition">13<br><strong>Al</strong><span>Aluminum</span></td>
+<td class="metalloid">14<br><strong>Si</strong><span>Silicon</span></td>
+<td class="nonmetal">15<br><strong>P</strong><span>Phosphorus</span></td>
+<td class="nonmetal">16<br><strong>S</strong><span>Sulfur</span></td>
+<td class="halogen">17<br><strong>Cl</strong><span>Chlorine</span></td>
+<td class="noble-gas">18<br><strong>Ar</strong><span>Argon</span></td>
+</tr>
+<tr>
+<td class="alkali">19<br><strong>K</strong><span>Potassium</span></td>
+<td class="alkaline-earth">20<br><strong>Ca</strong><span>Calcium</span></td>
+<td class="transition">21<br><strong>Sc</strong><span>Scandium</span></td>
+<td class="transition">22<br><strong>Ti</strong><span>Titanium</span></td>
+<td class="transition">23<br><strong>V</strong><span>Vanadium</span></td>
+<td class="transition">24<br><strong>Cr</strong><span>Chromium</span></td>
+<td class="transition">25<br><strong>Mn</strong><span>Manganese</span></td>
+<td class="transition">26<br><strong>Fe</strong><span>Iron</span></td>
+<td class="transition">27<br><strong>Co</strong><span>Cobalt</span></td>
+<td class="transition">28<br><strong>Ni</strong><span>Nickel</span></td>
+<td class="transition">29<br><strong>Cu</strong><span>Copper</span></td>
+<td class="transition">30<br><strong>Zn</strong><span>Zinc</span></td>
+<td class="post-transition">31<br><strong>Ga</strong><span>Gallium</span></td>
+<td class="metalloid">32<br><strong>Ge</strong><span>Germanium</span></td>
+<td class="metalloid">33<br><strong>As</strong><span>Arsenic</span></td>
+<td class="nonmetal">34<br><strong>Se</strong><span>Selenium</span></td>
+<td class="halogen">35<br><strong>Br</strong><span>Bromine</span></td>
+<td class="noble-gas">36<br><strong>Kr</strong><span>Krypton</span></td>
+</tr>
+<tr>
+<td class="alkali">37<br><strong>Rb</strong><span>Rubidium</span></td>
+<td class="alkaline-earth">38<br><strong>Sr</strong><span>Strontium</span></td>
+<td class="transition">39<br><strong>Y</strong><span>Yttrium</span></td>
+<td class="transition">40<br><strong>Zr</strong><span>Zirconium</span></td>
+<td class="transition">41<br><strong>Nb</strong><span>Niobium</span></td>
+<td class="transition">42<br><strong>Mo</strong><span>Molybdenum</span></td>
+<td class="transition">43<br><strong>Tc</strong><span>Technetium</span></td>
+<td class="transition">44<br><strong>Ru</strong><span>Ruthenium</span></td>
+<td class="transition">45<br><strong>Rh</strong><span>Rhodium</span></td>
+<td class="transition">46<br><strong>Pd</strong><span>Palladium</span></td>
+<td class="transition">47<br><strong>Ag</strong><span>Silver</span></td>
+<td class="transition">48<br><strong>Cd</strong><span>Cadmium</span></td>
+<td class="post-transition">49<br><strong>In</strong><span>Indium</span></td>
+<td class="post-transition">50<br><strong>Sn</strong><span>Tin</span></td>
+<td class="metalloid">51<br><strong>Sb</strong><span>Antimony</span></td>
+<td class="metalloid">52<br><strong>Te</strong><span>Tellurium</span></td>
+<td class="halogen">53<br><strong>I</strong><span>Iodine</span></td>
+<td class="noble-gas">54<br><strong>Xe</strong><span>Xenon</span></td>
+</tr>
+<tr>
+<td class="alkali">55<br><strong>Cs</strong><span>Cesium</span></td>
+<td class="alkaline-earth">56<br><strong>Ba</strong><span>Barium</span></td>
+<td class="lanthanide">57-71</td>
+<td class="transition">72<br><strong>Hf</strong><span>Hafnium</span></td>
+<td class="transition">73<br><strong>Ta</strong><span>Tantalum</span></td>
+<td class="transition">74<br><strong>W</strong><span>Tungsten</span></td>
+<td class="transition">75<br><strong>Re</strong><span>Rhenium</span></td>
+<td class="transition">76<br><strong>Os</strong><span>Osmium</span></td>
+<td class="transition">77<br><strong>Ir</strong><span>Iridium</span></td>
+<td class="transition">78<br><strong>Pt</strong><span>Platinum</span></td>
+<td class="transition">79<br><strong>Au</strong><span>Gold</span></td>
+<td class="transition">80<br><strong>Hg</strong><span>Mercury</span></td>
+<td class="post-transition">81<br><strong>Tl</strong><span>Thallium</span></td>
+<td class="post-transition">82<br><strong>Pb</strong><span>Lead</span></td>
+<td class="post-transition">83<br><strong>Bi</strong><span>Bismuth</span></td>
+<td class="post-transition">84<br><strong>Po</strong><span>Polonium</span></td>
+<td class="halogen">85<br><strong>At</strong><span>Astatine</span></td>
+<td class="noble-gas">86<br><strong>Rn</strong><span>Radon</span></td>
+</tr>
+<tr>
+<td class="alkali">87<br><strong>Fr</strong><span>Francium</span></td>
+<td class="alkaline-earth">88<br><strong>Ra</strong><span>Radium</span></td>
+<td class="actinide">89-103</td>
+<td class="transition">104<br><strong>Rf</strong><span>Rutherfordium</span></td>
+<td class="transition">105<br><strong>Db</strong><span>Dubnium</span></td>
+<td class="transition">106<br><strong>Sg</strong><span>Seaborgium</span></td>
+<td class="transition">107<br><strong>Bh</strong><span>Bohrium</span></td>
+<td class="transition">108<br><strong>Hs</strong><span>Hassium</span></td>
+<td class="transition">109<br><strong>Mt</strong><span>Meitnerium</span></td>
+<td class="transition">110<br><strong>Ds</strong><span>Darmstadtium</span></td>
+<td class="transition">111<br><strong>Rg</strong><span>Roentgenium</span></td>
+<td class="transition">112<br><strong>Cn</strong><span>Copernicium</span></td>
+<td class="post-transition">113<br><strong>Nh</strong><span>Nihonium</span></td>
+<td class="post-transition">114<br><strong>Fl</strong><span>Flerovium</span></td>
+<td class="post-transition">115<br><strong>Mc</strong><span>Moscovium</span></td>
+<td class="post-transition">116<br><strong>Lv</strong><span>Livermorium</span></td>
+<td class="halogen">117<br><strong>Ts</strong><span>Tennessine</span></td>
+<td class="noble-gas">118<br><strong>Og</strong><span>Oganesson</span></td>
+</tr>
+<tr>
+<td colspan="2" class="empty"></td>
+<td class="lanthanide">57<br><strong>La</strong><span>Lanthanum</span></td>
+<td class="lanthanide">58<br><strong>Ce</strong><span>Cerium</span></td>
+<td class="lanthanide">59<br><strong>Pr</strong><span>Praseodymium</span></td>
+<td class="lanthanide">60<br><strong>Nd</strong><span>Neodymium</span></td>
+<td class="lanthanide">61<br><strong>Pm</strong><span>Promethium</span></td>
+<td class="lanthanide">62<br><strong>Sm</strong><span>Samarium</span></td>
+<td class="lanthanide">63<br><strong>Eu</strong><span>Europium</span></td>
+<td class="lanthanide">64<br><strong>Gd</strong><span>Gadolinium</span></td>
+<td class="lanthanide">65<br><strong>Tb</strong><span>Terbium</span></td>
+<td class="lanthanide">66<br><strong>Dy</strong><span>Dysprosium</span></td>
+<td class="lanthanide">67<br><strong>Ho</strong><span>Holmium</span></td>
+<td class="lanthanide">68<br><strong>Er</strong><span>Erbium</span></td>
+<td class="lanthanide">69<br><strong>Tm</strong><span>Thulium</span></td>
+<td class="lanthanide">70<br><strong>Yb</strong><span>Ytterbium</span></td>
+<td class="lanthanide">71<br><strong>Lu</strong><span>Lutetium</span></td>
+<td colspan="1" class="empty"></td>
+</tr>
+<tr>
+<td colspan="2" class="empty"></td>
+<td class="actinide">89<br><strong>Ac</strong><span>Actinium</span></td>
+<td class="actinide">90<br><strong>Th</strong><span>Thorium</span></td>
+<td class="actinide">91<br><strong>Pa</strong><span>Protactinium</span></td>
+<td class="actinide">92<br><strong>U</strong><span>Uranium</span></td>
+<td class="actinide">93<br><strong>Np</strong><span>Neptunium</span></td>
+<td class="actinide">94<br><strong>Pu</strong><span>Plutonium</span></td>
+<td class="actinide">95<br><strong>Am</strong><span>Americium</span></td>
+<td class="actinide">96<br><strong>Cm</strong><span>Curium</span></td>
+<td class="actinide">97<br><strong>Bk</strong><span>Berkelium</span></td>
+<td class="actinide">98<br><strong>Cf</strong><span>Californium</span></td>
+<td class="actinide">99<br><strong>Es</strong><span>Einsteinium</span></td>
+<td class="actinide">100<br><strong>Fm</strong><span>Fermium</span></td>
+<td class="actinide">101<br><strong>Md</strong><span>Mendelevium</span></td>
+<td class="actinide">102<br><strong>No</strong><span>Nobelium</span></td>
+<td class="actinide">103<br><strong>Lr</strong><span>Lawrencium</span></td>
+<td colspan="1" class="empty"></td>
+</tr>
+</table>
+
+<div style="margin-top: 50px;">
+
+<div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; margin-top: 20px;">
+<div class="legend-box alkali">Alkali Metals</div>
+<div class="legend-box alkaline-earth">Alkaline Earth Metals</div>
+<div class="legend-box transition">Transition Metals</div>
+<div class="legend-box post-transition">Post-Transition Metals</div>
+<div class="legend-box metalloid">Metalloids</div>
+<div class="legend-box nonmetal">Nonmetals</div>
+<div class="legend-box halogen">Halogens</div>
+<div class="legend-box noble-gas">Noble Gases</div>
+<div class="legend-box lanthanide">Lanthanides</div>
+<div class="legend-box actinide">Actinides</div>
+</div>
+</div>
+
+</body>
+</html>

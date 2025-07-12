@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contact - Website</title>
+
+    <!-- External Stylesheets -->
+    <link rel="stylesheet" href="style-contact.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+  </head>
+
+  <body class="page-fade-in">
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+      <div class="container">
+        <div class="logo">Aaliyah</div>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="index.html#about">About</a></li>
+          <li><a href="index.html#projects">Projects</a></li>
+          <li><a href="index-contact.html">Contact</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <!-- Contact Section -->
+    <section class="contact-section">
+      <div class="container">
+        <h2>Contact Me</h2>
+
+        <!-- Form Feedback Message -->
+        <div id="formFeedback" class="form-feedback"></div>
+
+        <div class="contact-content">
+          <!-- Contact Form -->
+          <form class="contact-form" id="submit-to-google-sheet" novalidate>
+            <div class="form-group">
+              <label for="name">Name</label>
+              <input type="text" id="name" name="name" required />
+              <div class="focus-line"></div>
+              <span class="error-message" id="nameError"></span>
+            </div>
+
+            <div class="form-group">
+              <label for="email">Email Address</label>
+              <input type="email" id="email" name="email" required />
+              <div class="focus-line"></div>
+              <span class="error-message" id="emailError"></span>
+            </div>
+
+            <div class="form-group">
+              <label for="message">Your Message</label>
+              <textarea id="message" name="message" rows="5" required></textarea>
+              <div class="focus-line"></div>
+              <span class="error-message" id="messageError"></span>
+            </div>
+
+            <!-- Submit Button -->
+            <button type="submit" class="submit-btn">
+              <span>Send Message</span>
+              <i class="fas fa-paper-plane"></i>
+            </button>
+          </form>
+
+          <!-- Contact Info -->
+          <div class="contact-info">
+            <h3>Other Ways to Connect</h3>
+            <ul>
+              <li>
+                <i class="fas fa-envelope"></i> 202411660@fit.edu.ph
+              </li>
+              <li><i class="fas fa-phone"></i> 0915 497 8644</li>
+              <li>
+                <i class="fas fa-map-marker-alt"></i> Manila, Philippines
+              </li>
+            </ul>
+
+            <!-- Social Links -->
+            <div class="social-links">
+              <a
+                href="https://www.facebook.com/share/15uFRmvqXd/?mibextid=wwXIfr"
+                class="social-icon facebook-icon"
+                target="_blank"
+              >
+                <i class="fab fa-facebook-f"></i>
+              </a>
+              <a
+                href="https://x.com/iyaabcn_?s=21&t=Q-d0eo4Oe7-Cn3EbwhZ4zQ"
+                class="social-icon twitter-icon"
+                target="_blank"
+              >
+                <i class="fab fa-twitter"></i>
+              </a>
+              <a
+                href="https://www.instagram.com/iyaabcn_?igsh=d2J3bXhheW03eG90&utm_source=qr"
+                class="social-icon instagram-icon"
+                target="_blank"
+              >
+                <i class="fab fa-instagram"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Back to Home Button -->
+    <div class="back-home-container">
+      <button id="homeButton" class="back-home-btn">
+        <i class="fas fa-arrow-left"></i> Back to Home
+      </button>
+    </div>
+
+    <!-- Custom Popup Elements -->
+    <div class="popup-overlay" id="popupOverlay"></div>
+    <div class="custom-popup" id="customPopup">
+      <div id="popupContent">
+        <p id="popupMessage">Are you sure?</p>
+        <div class="popup-buttons" id="popupButtonContainer">
+          <button class="confirm-btn" id="popupYes">Yes</button>
+          <button class="cancel-btn" id="popupNo">No</button>
+        </div>
+        <div class="loading-state" id="loadingState">
+          <div class="loading-spinner"></div>
+          <p>Submitting...</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="countdown-overlay" id="countdownOverlay">
+      <div class="countdown-text" id="countdownText"></div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+      <div class="container">
+        <p>&copy; 2025 Aaliyah Abacan. All rights reserved.</p>
+      </div>
+    </footer>
+
+    <script>
+      // Google Sheet script URL
+      const scriptURL =
+        "https://script.google.com/macros/s/AKfycbzeeDEVk1DMQvHeBG9f9aPO42oq-R4NwMJAmFSgh_aBeMNtpdosDH9rFCT8PackwY4NlA/exec";
+      const form = document.forms["submit-to-google-sheet"];
+
+      // Popup element references
+      const overlay = document.getElementById("popupOverlay");
+      const popup = document.getElementById("customPopup");
+      const popupMsg = document.getElementById("popupMessage");
+      const popupYes = document.getElementById("popupYes");
+      const popupNo = document.getElementById("popupNo");
+      const popupButtonContainer = document.getElementById("popupButtonContainer");
+      const loadingState = document.getElementById("loadingState");
+
+      // Countdown elements
+      const countdownOverlay = document.getElementById("countdownOverlay");
+      const countdownText = document.getElementById("countdownText");
+
+      // Function to show custom popup with different types (confirm, success, error, loading)
+      function showCustomPopup(message, type = 'confirm', onConfirm = null, onCancel = null) {
+        popupMsg.textContent = message;
+
+        // Reset display states
+        popupMsg.style.display = 'block';
+        popupButtonContainer.style.display = 'none';
+        loadingState.style.display = 'none';
+
+        if (type === 'confirm') {
+          popupButtonContainer.style.display = 'flex'; // Show Yes/No buttons
+          popupYes.textContent = 'Yes';
+          popupNo.style.display = 'inline-block';
+          popupYes.onclick = () => {
+            popup.style.display = 'none';
+            overlay.style.display = 'none';
+            if (onConfirm) onConfirm();
+          };
+          popupNo.onclick = () => {
+            popup.style.display = 'none';
+            overlay.style.display = 'none';
+            if (onCancel) onCancel();
+          };
+        } else if (type === 'success' || type === 'error') {
+          popupButtonContainer.style.display = 'flex'; // Show 'Okay' button
+          popupYes.textContent = 'Okay';
+          popupNo.style.display = 'none';
+          popupYes.onclick = () => {
+            popup.style.display = 'none';
+            overlay.style.display = 'none';
+            if (onConfirm) onConfirm();
+          };
+        } else if (type === 'loading') {
+          popupMsg.style.display = 'none'; // Hide message during loading
+          loadingState.style.display = 'flex'; // Show spinner and loading text
+        }
+
+        popup.style.display = 'block';
+        overlay.style.display = 'block';
+      }
+
+      // Function to start the countdown and animation
+      function startCountdownAnimation() {
+        countdownOverlay.style.display = "flex"; // Show the overlay
+
+        let count = 3;
+        countdownText.textContent = count;
+        countdownText.style.animation = 'countdownPop 0.5s ease-out forwards'; // Initial pop animation
+
+        const countdownInterval = setInterval(() => {
+          count--;
+          if (count > 0) {
+            countdownText.textContent = count;
+            countdownText.style.animation = 'none'; // Reset animation
+            void countdownText.offsetWidth; // Trigger reflow
+            countdownText.style.animation = 'countdownPop 0.5s ease-out forwards'; // Re-apply animation
+          } else if (count === 0) {
+            countdownText.textContent = "0";
+            countdownText.style.animation = 'none';
+            void countdownText.offsetWidth;
+            countdownText.style.animation = 'countdownPop 0.5s ease-out forwards';
+          } else {
+            clearInterval(countdownInterval);
+            // Allow a brief moment for "0" to show before redirect
+            setTimeout(() => {
+              countdownOverlay.style.display = "none"; // Hide overlay
+              window.location.href = "index.html"; // Redirect
+            }, 500); // Wait 0.5 seconds after "Go!"
+          }
+        }, 1000); // Update every 1 second
+      }
+
+      // Back to home button
+      document.getElementById("homeButton").addEventListener("click", function () {
+        showCustomPopup("Do you want to go back to the home page?", 'confirm', () => {
+          startCountdownAnimation(); // Start the new animation on confirmation
+        });
+      });
+
+      // Form submission and validation
+      form.addEventListener("submit", (e) => {
+        e.preventDefault(); // Prevent default submission to allow custom validation
+
+        const nameInput = document.getElementById("name");
+        const emailInput = document.getElementById("email");
+        const messageInput = document.getElementById("message");
+
+        const nameError = document.getElementById("nameError");
+        const emailError = document.getElementById("emailError");
+        const messageError = document.getElementById("messageError");
+
+        // Reset previous errors
+        [nameInput, emailInput, messageInput].forEach((input) => {
+          input.classList.remove("invalid");
+          // Also reset the focus line color when removing invalid class
+          if (input.nextElementSibling && input.nextElementSibling.classList.contains('focus-line')) {
+            input.nextElementSibling.style.backgroundColor = ''; // Reset to default via CSS
+          }
+        });
+        [nameError, emailError, messageError].forEach(
+          (error) => (error.textContent = "")
+        );
+
+        let hasError = false;
+
+        // Name validation
+        if (nameInput.value.trim() === "") {
+          nameInput.classList.add("invalid");
+          nameError.textContent = "Name is required";
+          hasError = true;
+        }
+
+        // Email validation
+        if (emailInput.value.trim() === "") {
+          emailInput.classList.add("invalid");
+          emailError.textContent = "Email is required";
+          hasError = true;
+        } else if (!/^\S+@\S+\.\S+$/.test(emailInput.value)) {
+          emailInput.classList.add("invalid");
+          emailError.textContent = "Enter a valid email address";
+          hasError = true;
+        }
+
+        // Message validation
+        if (messageInput.value.trim() === "") {
+          messageInput.classList.add("invalid");
+          messageError.textContent = "Message is required";
+          hasError = true;
+        }
+
+        if (hasError) {
+          // Highlight the focus line in red for invalid fields
+          if (nameInput.classList.contains('invalid') && nameInput.nextElementSibling && nameInput.nextElementSibling.classList.contains('focus-line')) {
+            nameInput.nextElementSibling.style.backgroundColor = '#ff4d4d';
+          }
+          if (emailInput.classList.contains('invalid') && emailInput.nextElementSibling && emailInput.nextElementSibling.classList.contains('focus-line')) {
+            emailInput.nextElementSibling.style.backgroundColor = '#ff4d4d';
+          }
+          if (messageInput.classList.contains('invalid') && messageInput.nextElementSibling && messageInput.nextElementSibling.classList.contains('focus-line')) {
+            messageInput.nextElementSibling.style.backgroundColor = '#ff4d4d';
+          }
+          return; // Stop the submission if there are errors
+        }
+
+        // If no errors, proceed with submission confirmation
+        showCustomPopup("Are you sure you want to submit the form?", 'confirm', () => {
+          const formData = new FormData(form);
+
+          // Show loading state
+          showCustomPopup("Submitting your message...", 'loading');
+
+          fetch(scriptURL, { method: "POST", body: formData })
+            .then((response) => {
+              if (response.ok) {
+                form.reset();
+                showCustomPopup(
+                  "Your form has been successfully submitted.",
+                  'success',
+                  () => {
+                    showCustomPopup(
+                      "Do you want to submit another response?",
+                      'confirm',
+                      () => {
+                        // Stay on the page, do nothing or reset form explicitly if needed
+                      },
+                      () => {
+                        window.location.href = "index.html";
+                      }
+                    );
+                  }
+                );
+              } else {
+                throw new Error("Network response was not ok.");
+              }
+            })
+            .catch((error) => {
+              console.error("Error!", error.message);
+              showCustomPopup(
+                "Something went wrong. Please try again!",
+                'error',
+                () => {}
+              );
+            });
+        });
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Abacan - Resume</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet" />
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+  <style>
+    :root {
+      --primary: #1e3a8a;
+      --secondary: #60a5fa;
+      --bg: #f9fafb;
+      --card-bg: #ffffff;
+      --text: #1f2937;
+      --muted: #6b7280;
+      --shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html, body {
+      font-family: 'Poppins', sans-serif;
+      background-color: var(--bg);
+      height: 100%;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+
+    .resume {
+      display: flex;
+      flex-direction: row;
+      width: 90vw;
+      height: 90vh;
+      background-color: var(--card-bg);
+      border-radius: 16px;
+      box-shadow: var(--shadow);
+      overflow: hidden;
+	  margin-top: 80px;
+
+    }
+
+    .left {
+      width: 35%;
+      background: linear-gradient(160deg, var(--primary), var(--secondary));
+      color: white;
+      padding: 2rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .profile-pic {
+      width: 140px;
+      height: 140px;
+      border-radius: 50%;
+      overflow: hidden;
+      border: 4px solid #fff;
+      margin-bottom: 1.5rem;
+      background: linear-gradient(to right, #60a5fa, #3b82f6);
+    }
+
+    .profile-pic img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .name {
+      font-size: 1.5rem;
+      font-weight: 600;
+      margin-bottom: 0.25rem;
+      text-align: center;
+    }
+
+    .title {
+      font-size: 1rem;
+      font-weight: 300;
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+
+    .section {
+      width: 100%;
+      margin-bottom: 1.5rem;
+    }
+
+    .section h3 {
+      font-size: 1rem;
+      font-weight: 500;
+      margin-bottom: 0.75rem;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+      padding-bottom: 0.25rem;
+    }
+
+    .section div, .section li {
+      margin-bottom: 0.5rem;
+      font-size: 0.9rem;
+      line-height: 1.4;
+    }
+
+    .section i {
+      margin-right: 0.5rem;
+      color: #dbeafe;
+    }
+
+    .right {
+      width: 65%;
+      padding: 2rem 2.5rem;
+      overflow-y: auto;
+    }
+
+    .right h2 {
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: var(--primary);
+      margin-bottom: 1rem;
+      border-bottom: 2px solid var(--primary);
+      padding-bottom: 0.25rem;
+    }
+
+    .card {
+      background-color: var(--bg);
+      border-radius: 10px;
+      padding: 1rem 1.25rem;
+      margin-bottom: 1.5rem;
+      box-shadow: var(--shadow);
+    }
+
+    .card h4 {
+      font-size: 1rem;
+      font-weight: 600;
+      margin-bottom: 0.3rem;
+      color: var(--text);
+    }
+
+    .card .date {
+      font-size: 0.85rem;
+      color: var(--muted);
+      margin-bottom: 0.75rem;
+    }
+
+    .card p, .card li {
+      font-size: 0.95rem;
+      color: var(--text);
+      line-height: 1.5;
+    }
+
+    ul {
+      padding-left: 1rem;
+    }
+
+    li::marker {
+      color: var(--primary);
+    }
+
+    @media (max-width: 768px) {
+      .resume {
+        flex-direction: column;
+        height: auto;
+        width: 95%;
+      }
+
+      .left, .right {
+        width: 100%;
+        height: auto;
+      }
+    }
+	.back-button {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  padding: 10px 16px;
+  background-color: #1e3a8a;
+  color: #fff;
+  text-decoration: none;
+  font-size: 14px;
+  border-radius: 20px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+  z-index: 999;
+  transition: background-color 0.2s ease;
+}
+
+.back-button:hover {
+  background-color: #163273;
+}
+
+  </style>
+</head>
+<body>
+<div class="header-wrapper">
+  <a href="index.html" class="back-button">← Back to Home</a>
+</div>
+
+
+  <div class="resume">
+    <div class="left">
+      <div class="profile-pic">
+        <img src="id pic.png" alt="Aaliyah Angela Abacan" />
+      </div>
+      <div class="name">Aaliyah Angela Abacan</div>
+      <div class="title">IT Student</div>
+
+      <div class="section">
+        <h3>Contact</h3>
+        <div><i class="fas fa-envelope"></i> iyahangela26@gmail.com</div>
+        <div><i class="fas fa-phone"></i> +63 915 497 8644</div>
+        <div><i class="fas fa-map-marker-alt"></i> Quezon City, Philippines</div>
+      </div>
+
+      <div class="section">
+        <h3>Skills</h3>
+        <ul>
+          <li>Design Tools (Photoshop, Canva)</li>
+          <li>Microsoft Office</li>
+          <li>C++ Basics</li>
+          <li>Windows OS</li>
+          <li>Computer Troubleshooting</li>
+        </ul>
+      </div>
+
+      <div class="section">
+        <h3>References</h3>
+        <div><strong>Randolph Jude Palafox</strong><br>09989089516</div>
+        <div><strong>John Robert Babaran</strong><br>09394531792</div>
+      </div>
+    </div>
+
+    <div class="right">
+      <section>
+        <h2>About Me</h2>
+        <div class="card">
+          <p>Motivated and detail-oriented aspiring IT professional with a strong foundation in programming and web development. Eager to apply technical skills and creativity in real-world projects while continuously learning new technologies.</p>
+        </div>
+      </section>
+
+      <section>
+        <h2>Education</h2>
+        <div class="card">
+          <h4>College (2024 - Present)</h4>
+		  <div class="date">FEU Institute of Technology</div>
+		  <p>Bachelor of Science in Information Technology with specialization in Cybersecurity</p>
+        </div>
+		<div class="card">
+          <h4>Senior High School (2022 - 2024)</h4>
+		  <div class="date">Adamson University</div>
+		  <p>STEM-Engineering (Science, Technology, Engineering, and Mathematics)</p>
+        </div>
+      </section>
+
+      <section>
+        <h2>Work Experience</h2>
+        <div class="card">
+          <h4>Work Immersion (April 2024 - May 2024)</h4>
+          <div class="date"> Computer Engineering Department, Adamson University</div>
+          <ul>
+            <li>Provided hands-on support in administrative operations within the department.</li>
+            <li>Handled and organized incoming and outgoing documents, ensuring accurate tracking and timely delivery.</li>
+            <li>Operated essential office equipment including printers, photocopiers, and logbooks, while maintaining orderly usage records.</li>
+			<li>Assisted faculty members with routine clerical tasks such as filing, document sorting, and encoding student data.</li>
+            <li>Gained firsthand experience in how an academic office functions, emphasizing professionalism and attention to detail.</li>
+          </ul>
+        </div>
+      </section>
+    </div>
+	
+  </div>
+  
+</body>
+</html>
